@@ -1,0 +1,16 @@
+package hello_world;
+
+import java.io.PrintStream;
+
+public class HelloWorld 
+{ 
+    public HelloWorld() {}
+
+    public void sayHello() { System.out.print(" Hello "); }
+
+    public static void main(String[] args)
+    {
+        new HelloWorld().sayHello();
+        World.aspectOf().ajc$afterReturning$hello_world_World$1$f69f5afa();
+    }
+}

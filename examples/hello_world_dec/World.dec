@@ -1,0 +1,46 @@
+package hello_world; 
+
+import org.aspectj.lang.NoAspectBoundException;
+
+public class World 
+{ 
+    public World() {}
+
+    static 
+    { 
+        try 
+        {  
+        } 
+        catch (Throwable localThrowable) 
+        { 
+            ajc$initFailureCause = localThrowable; 
+        } 
+    }
+
+    public static World aspectOf() 
+    { 
+        if (ajc$perSingletonInstance == null) 
+            throw new NoAspectBoundException(
+                "hello_world_World", ajc$initFailureCause); 
+            
+        return ajc$perSingletonInstance; 
+    } 
+    
+    public static boolean hasAspect() 
+    { 
+        return ajc$perSingletonInstance != null; 
+    } 
+    
+    private static void ajc$postClinit() 
+    { 
+        ajc$perSingletonInstance = new World(); 
+    }
+
+    public void ajc$afterReturning$hello_world_World$1$f69f5afa() 
+    { 
+        System.out.print("World!"); 
+    }
+
+    private static Throwable ajc$initFailureCause;
+    public static final World ajc$perSingletonInstance;
+}
